@@ -9,6 +9,7 @@ namespace WinGeckoCSharpClientExample
 
         private static int Main()
         {
+            int returnValue;
             try
             {
                 Console.WriteLine("Connecting to WinGecko server...");
@@ -17,16 +18,18 @@ namespace WinGeckoCSharpClientExample
                     var serverDetails = winGeckoClient.ReadServerDetails();
                     Console.WriteLine(serverDetails.ToString());
                 }
+
+                returnValue = 0;
             }
             catch (Exception exception)
             {
                 Console.WriteLine(exception.ToString());
-                return -1;
+                returnValue = -1;
             }
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadLine();
-            return 0;
+            return returnValue;
         }
     }
 }
